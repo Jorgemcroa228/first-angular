@@ -1,0 +1,62 @@
+.laboratorio {     min-height: 100vh;     display: grid;     grid-template-columns: 1fr 1fr;     gap: 32px;     padding: 40px;     background: #f4f4f8;     font-family: system-ui, sans-serif;   } 
+
+  .panel { 
+    display: grid; 
+    gap: 10px; 
+    align-content: start; 
+    background: #fff; 
+    padding: 28px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 25px rgb(26 26 46 / 0.08); 
+  } 
+
+  label { font-size: 0.8rem; color: #5a5a6e; font-weight: 600; } 
+
+  input { 
+    padding: 10px 12px; 
+    border: 1px solid #d8d8e0; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+  }
+
+  button {     padding: 10px 14px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 600; 
+  } 
+
+  .toggle { background: #ede7f6; color: #45106b; } 
+  .enviar { background: #6a1b9a; color: #fff; } 
+  .enviar:disabled { opacity: 0.4; cursor: not-allowed; } 
+
+  .previa { display: grid; place-content: center; }
+  
+  .tarjeta { 
+    width: 280px; 
+    text-align: center; 
+    background: #fff; 
+    border-radius: 16px; 
+    border-top: 8px solid #6a1b9a; 
+    padding: 32px 24px; 
+    box-shadow: 0 14px 30px rgb(26 26 46 / 0.12); 
+  }
+
+  .iniciales { 
+    width: 72px; height: 72px; 
+    margin: 0 auto 12px; 
+    border-radius: 50%; 
+    display: grid; place-content: center; 
+    color: #fff; font-size: 1.5rem; font-weight: 700; 
+  } 
+
+  .rol { color: #5a5a6e; margin: 4px 0 14px; } 
+
+  .estado { 
+    padding: 5px 12px; 
+    border-radius: 999px; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+  } 
+  .estado.libre  { background: #e6f4ea; color: #1b5e20; } 
+  .estado.ocupado { background: #fde7ec; color: #8e0020; } 

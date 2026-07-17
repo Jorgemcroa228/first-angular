@@ -1,35 +1,25 @@
-import { Component, signal, computed } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+  import { Component, signal, computed } from '@angular/core';   import { FormsModule } from '@angular/forms';      @Component({     selector: 'app-root',     imports: [FormsModule],     templateUrl: './app.html',     styleUrl: './app.css',   }) 
+  export class App { 
+    // ----- Estado editable ----- 
+    nombre = signal('Alex Rivera'); 
+    profesion = signal('Desarrollador/a Angular'); 
+    color = signal('#6a1b9a'); 
+    disponible = signal(true); 
 
-@Component({
-  selector: 'app-root',
-  imports: [FormsModule],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
-})
-export class App {
-  
-  name = signal('Jorge Mario');
-  profession = signal('dev Fullstack');
-  color = signal('#6a1b9a');
-  available = signal(true);
-
-  iniciales = computed(() =>
-  this.name()
-  .split(' ')
-  .map(p => p[0] ?? '')
-  .join('')
-  .toUpperCase()
-  .slice(0, 2)
-);
-
-alternarDisponibilidad() {
-  this.available.update(v => !v);
-}
-
-saludar(message : String) {
-  alert(` Message to ${this.name()}: ${message}`);
-}
-
-}
+    // ----- Estado derivado (se recalcula solo) ----- 
+    iniciales = computed(() => 
+      this.nombre() 
+        .split(' ') 
+        .map(p => p[0] ?? '') 
+        .join('') 
+        .toUpperCase() 
+        .slice(0, 2) 
+    ); 
+    // ----- Acciones ----- 
+    alternarDisponibilidad() { 
+      this.disponible.update(v => !v); 
+    } 
+  saludar(mensaje: string) { 
+      alert(`📨 Mensaje para ${this.nombre()}: ${mensaje}`); 
+    } 
+  }

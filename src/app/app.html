@@ -28,12 +28,12 @@
         <div class="iniciales" [style.background]="color()"> 
           {{ iniciales() }} 
         </div> 
-        <h3>{{ nombre() }}</h3> 
-        <p class="rol">{{ profesion() }}</p> 
+        <h3>{{ name() }}</h3> 
+        <p class="rol">{{ profession() }}</p> 
         <span class="estado" 
-              [class.libre]="disponible()" 
-              [class.ocupado]="!disponible()"> 
-          {{ disponible() ? '🟢 Disponible' : '🔴 Ocupado/a' }} 
+              [class.libre]="available()" 
+              [class.ocupado]="!available()"> 
+          {{ available() ? '🟢 Disponible' : '🔴 Ocupado/a' }} 
         </span> 
       </article> 
     </section> 

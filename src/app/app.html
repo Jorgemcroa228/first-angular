@@ -1,0 +1,41 @@
+  <main class="laboratorio">  
+  <section class="panel"> 
+    <h2>🎛 Editor</h2> 
+    <label>Nombre completo</label> 
+    <input [(ngModel)]="nombre" placeholder="Tu nombre"> 
+      <label>Profesión</label> 
+      <input [(ngModel)]="profesion" placeholder="Tu rol"> 
+      <label>Color de marca</label>  
+      <input type="color" 
+              [value]="color()" 
+              (input)="color.set($any($event.target).value)">     
+      <!-- Event binding puro --> 
+      <button class="toggle" (click)="alternarDisponibilidad()"> 
+        Cambiar disponibilidad 
+      </button> 
+      <label>Mensaje rápido</label> 
+      <!-- Referencia de template #msj --> 
+      <input #msj placeholder="Escríbele algo..."> 
+      <button class="enviar" 
+              [disabled]="msj.value.length === 0" 
+              (click)="saludar(msj.value); msj.value = ''"> 
+        Enviar ({{ msj.value.length }} caracteres) 
+      </button> 
+    </section> 
+    <!-- ==================== VISTA PREVIA ==================== --> 
+    <section class="previa"> 
+      <article class="tarjeta" [style.borderTopColor]="color()"> 
+        <div class="iniciales" [style.background]="color()"> 
+          {{ iniciales() }} 
+        </div> 
+        <h3>{{ nombre() }}</h3> 
+        <p class="rol">{{ profesion() }}</p> 
+        <span class="estado" 
+              [class.libre]="disponible()" 
+              [class.ocupado]="!disponible()"> 
+          {{ disponible() ? '🟢 Disponible' : '🔴 Ocupado/a' }} 
+        </span> 
+      </article> 
+    </section> 
+  </main> 
+

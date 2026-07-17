@@ -1,7 +1,15 @@
   <main class="laboratorio">        <!-- ==================== PANEL DE EDICIÓN ==================== -->     <section class="panel">       <h2>🎛 Editor</h2>          <label>Nombre completo</label>       <!-- Two-way con ngModel + signal -->       <input [(ngModel)]="nombre" placeholder="Tu nombre"> 
 
       <label>Profesión</label> 
-      <input [(ngModel)]="profesion" placeholder="Tu rol"> 
+<input
+  [ngModel]="nombre()"
+  (ngModelChange)="nombre.set($event)"
+  placeholder="Tu nombre">
+
+<input
+  [ngModel]="profesion()"
+  (ngModelChange)="profesion.set($event)"
+  placeholder="Tu rol">
       <label>Color de marca</label> 
       <!-- Property binding [value] + event binding (input) --> 
       <input type="color" 
@@ -37,4 +45,4 @@
         </span> 
       </article> 
     </section> 
-  </main
+  </main>
